@@ -1,0 +1,9 @@
+.card__favorites {
+  border: none;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+
+.card__favorites:hover {
+  opacity: 0.5;
+}

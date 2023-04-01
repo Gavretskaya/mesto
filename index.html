@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
+</head>
+<body class="page">
+  <header>
+    <div class="header">
+      <div class="logo"></div>
+      <div class="header__line"></div>
+    </div>
+  </header>
+  <main>
+    <section class="profile">
+      <div class="profile__card">
+        <img class="profile__avatar" src="./images/author-photo-vector.jpg" alt="Портрет Жак-Ив Кусто">
+        <div class="profile__info">
+          <p class="profile__title">Жак-Ив Кусто</p>
+          <button type="button" class="profile__edit-button">
+            <img class="profile__edit-img" src="./images/Edit Button.png" alt="Редактирование профиля">
+          </button>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+      </div>
+
+      <button type="button" class="profile__add-button">
+        <img class="profile__add-img" src="./images/plus.png" alt="Добавление контента">
+      </button>
+    </section>
+
+    <section class="elements">
+      <div class="card">
+        <img class="card__img"  src="./images/karachevsk.jpg" alt="Карачаевск">
+        <div class="card__container">
+          <p class="card__title">Карачаевск</p>
+          <button type="button" class="card__favorites">
+            <img class="card__fav-img" src="./images/heart.png">
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card__img"  src="./images/elbrus.png" alt="Гора Эльбрус">
+        <div class="card__container">
+          <p class="card__title">Гора Эльбрус</p>
+          <button type="button" class="card__favorites">
+            <img class="card__fav-img" src="./images/heart.png">
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card__img"  src="./images/dombai.png" alt="Домбай">
+        <div class="card__container">
+          <p class="card__title">Домбай</p>
+          <button type="button" class="card__favorites">
+            <img class="card__fav-img" src="./images/heart.png">
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card__img"  src="./images/elbrus.png" alt="Гора Эльбрус">
+        <div class="card__container">
+          <p class="card__title">Гора Эльбрус</p>
+          <button type="button" class="card__favorites">
+            <img class="card__fav-img" src="./images/heart.png">
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card__img"  src="./images/dombai.png" alt="Домбай">
+        <div class="card__container">
+          <p class="card__title">Домбай</p>
+          <button type="button" class="card__favorites">
+            <img class="card__fav-img" src="./images/heart.png">
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card__img"  src="./images/karachevsk.jpg" alt="Карачаево-Черкессия">
+        <div class="card__container">
+          <p class="card__title">Карачаево-Черкессия</p>
+          <button type="button" class="card__favorites">
+            <img class="card__fav-img" src="./images/heart.png">
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+      <div class="footer__text">© 2020 Mesto Russia</div>
+  </footer>
+
+<section class="popup popup_type_edit">
+  <div class="popup__content">
+    <div role="button" class="popup__close"><img class="popup__img" src="./images/Close__Icon.png" alt="Закрыть"></div>
+    <h3 class="popup__title">
+     Редактровать профиль 
+    </h3>
+    <form class="popup__form">
+      <input class="popup__input popup__input_type_name" name="name" />
+      <input class="popup__input popup__input_type_info" />
+      <button type="submit" class="popup__save">Сохранить</button>
+    </form>
+    
+  </div>
+
+</section>
+ <script src="./script.js"></script>
+</body>
+</html>
