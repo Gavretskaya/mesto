@@ -1,7 +1,15 @@
 .card__favorites {
+  width: 22px;
+  height: 19px;
   border: none;
-  background-color: #FFFFFF;
+  background-color: transparent;
   cursor: pointer;
+  padding: 0;
+  background-image: url(../../../images/heart.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+  background-size: contain;
 }
 
 .card__favorites:hover {

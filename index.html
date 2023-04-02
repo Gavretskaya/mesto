@@ -10,7 +10,6 @@
   <header>
     <div class="header">
       <div class="logo"></div>
-      <div class="header__line"></div>
     </div>
   </header>
   <main>
@@ -18,102 +17,86 @@
       <div class="profile__card">
         <img class="profile__avatar" src="./images/author-photo-vector.jpg" alt="Портрет Жак-Ив Кусто">
         <div class="profile__info">
-          <p class="profile__title">Жак-Ив Кусто</p>
-          <button type="button" class="profile__edit-button">
-            <img class="profile__edit-img" src="./images/Edit Button.png" alt="Редактирование профиля">
-          </button>
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button type="button" class="profile__edit-button"></button>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
       </div>
 
-      <button type="button" class="profile__add-button">
-        <img class="profile__add-img" src="./images/plus.png" alt="Добавление контента">
-      </button>
+      <button type="button" class="profile__add-button"></button>
     </section>
 
     <section class="elements">
-      <div class="card">
+      <article class="card">
         <img class="card__img"  src="./images/karachevsk.jpg" alt="Карачаевск">
         <div class="card__container">
-          <p class="card__title">Карачаевск</p>
-          <button type="button" class="card__favorites">
-            <img class="card__fav-img" src="./images/heart.png">
-          </button>
+          <h2 class="card__title">Карачаевск</h2>
+          <button type="button" class="card__favorites"></button>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
+      <article class="card">
         <img class="card__img"  src="./images/elbrus.png" alt="Гора Эльбрус">
         <div class="card__container">
-          <p class="card__title">Гора Эльбрус</p>
-          <button type="button" class="card__favorites">
-            <img class="card__fav-img" src="./images/heart.png">
-          </button>
+          <h2 class="card__title">Гора Эльбрус</h2>
+          <button type="button" class="card__favorites"></button>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
+      <article class="card">
         <img class="card__img"  src="./images/dombai.png" alt="Домбай">
         <div class="card__container">
-          <p class="card__title">Домбай</p>
-          <button type="button" class="card__favorites">
-            <img class="card__fav-img" src="./images/heart.png">
-          </button>
+          <h2 class="card__title">Домбай</h2>
+          <button type="button" class="card__favorites"></button>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
+      <article class="card">
         <img class="card__img"  src="./images/elbrus.png" alt="Гора Эльбрус">
         <div class="card__container">
-          <p class="card__title">Гора Эльбрус</p>
-          <button type="button" class="card__favorites">
-            <img class="card__fav-img" src="./images/heart.png">
-          </button>
+          <h2 class="card__title">Гора Эльбрус</h2>
+          <button type="button" class="card__favorites"></button>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
+      <article class="card">
         <img class="card__img"  src="./images/dombai.png" alt="Домбай">
         <div class="card__container">
-          <p class="card__title">Домбай</p>
-          <button type="button" class="card__favorites">
-            <img class="card__fav-img" src="./images/heart.png">
-          </button>
+          <h2 class="card__title">Домбай</h2>
+          <button type="button" class="card__favorites"></button>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
+      <article class="card">
         <img class="card__img"  src="./images/karachevsk.jpg" alt="Карачаево-Черкессия">
         <div class="card__container">
-          <p class="card__title">Карачаево-Черкессия</p>
-          <button type="button" class="card__favorites">
-            <img class="card__fav-img" src="./images/heart.png">
-          </button>
+          <h2 class="card__title">Карачаево-Черкессия</h2>
+          <button type="button" class="card__favorites"></button>
         </div>
-      </div>
+      </article>
     </section>
 
   </main>
 
   <footer class="footer">
-      <div class="footer__text">© 2020 Mesto Russia</div>
+      <p class="footer__text">© 2020 Mesto Russia</p>
   </footer>
 
 <section class="popup popup_type_edit">
-  <div class="popup__content">
-    <div role="button" class="popup__close"><img class="popup__img" src="./images/Close__Icon.png" alt="Закрыть"></div>
+  <div class="popup__container">
+    <button type="button" class="popup__close"></button>
     <h3 class="popup__title">
      Редактровать профиль 
     </h3>
-    <form class="popup__form">
-      <input class="popup__input popup__input_type_name" name="name" />
-      <input class="popup__input popup__input_type_info" />
+    <form class="popup__form" name="form">
+      <input type="text" class="popup__input popup__input_type_name" name="name">
+      <input type="text" class="popup__input popup__input_type_info" name="info">
       <button type="submit" class="popup__save">Сохранить</button>
     </form>
     
   </div>
 
 </section>
- <script src="./script.js"></script>
+ <script src="./scripts/index.js"></script>
 </body>
 </html>

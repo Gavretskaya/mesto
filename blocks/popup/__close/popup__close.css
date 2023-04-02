@@ -4,8 +4,14 @@
   position: absolute;
   right: -40px;
   top: -40px;
-  font-size: 30px;
   cursor: pointer;
+  background-image: url(../../../images/CloseIcon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
 }
 
 .popup__close:hover {
@@ -16,7 +22,7 @@
   .popup__close {
     width: 20px;
     height: 20px;
-    right: -1px;
-    top: -45px;
+    right: 0px;
+    top: -36px;
   }
 }
