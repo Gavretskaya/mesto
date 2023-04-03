@@ -9,7 +9,8 @@
   background-repeat: no-repeat;
   background-position: center;
   box-sizing: border-box;
-  background-size: contain;
+  background-size: cover;
+  margin-right: 5px;
 }
 
 .card__favorites:hover {

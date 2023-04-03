@@ -8,6 +8,9 @@
   align-self: center;
   cursor: pointer;
   background-image: url(../../../images/editButton.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
 }
 
 .profile__edit-button:hover {
@@ -15,8 +18,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .profile__edit-img {
-    width: 18px;
-    height: 18px;
+  .profile__edit-button {
+    background-size: 18px 18px;
   }
 }
