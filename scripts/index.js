@@ -1,27 +1,28 @@
 // Переменные для редактирования профиля
 const editLink = document.querySelector('.profile__edit-button');
-const editPopup = document.querySelector('.popup_type_edit');
-const editPopupCloseButton = editPopup.querySelector(".popup__close");
-const nameInput = editPopup.querySelector(".popup__input_type_name");
-const editPopupForm = editPopup.querySelector(".popup__form_edit");
-const editPopupChangeName = document.querySelector(".profile__title");
-const infoInput = editPopup.querySelector(".popup__input_type_info");
-const editPopupChangeInfo = document.querySelector(".profile__subtitle");
+const popupEdit = document.querySelector('.popup_type_edit');
+const popupEditCloseButton = popupEdit.querySelector(".popup__close");
+const nameInput = popupEdit.querySelector(".popup__input_type_name");
+const popupEditForm = popupEdit.querySelector(".popup__form_edit");
+const popupEditChangeName = document.querySelector(".profile__title");
+const infoInput = popupEdit.querySelector(".popup__input_type_info");
+const popupEditChangeInfo = document.querySelector(".profile__subtitle");
 
 // Переменные для добавления картинок в грид
-const addLink = document.querySelector(".profile__add-button");
-const addPopup = document.querySelector(".popup_type_add");
-const addPopupCloseButton = addPopup.querySelector(".popup__close_card");
-const addPopupForm = addPopup.querySelector(".popup__form_add");
-const addPopupChangeNameCard = document.querySelector(".card__title");
+const popupAddLink = document.querySelector(".profile__add-button");
+const popupAdd = document.querySelector(".popup_type_add");
+const popupAddCloseButton = popupAdd.querySelector(".popup__close_card");
+const popupAddForm = popupAdd.querySelector(".popup__form_add");
+const popupAddChangeNameCard = document.querySelector(".card__title");
+const cardNameInput = popupAdd.querySelector('.popup__input_type_card-name');
+const cardURLInput = popupAdd.querySelector('.popup__input_type_card-url');
 
 // нажатие на карточку
 const popupImg = document.querySelector('.popup_type_img');
 const cardImg = document.querySelector('.card__img');
 const cardImgName = popupImg.querySelector('.popup__title-img');
 const linkImg = popupImg.querySelector('.popup__card-img');
-const closeImg = popupImg.querySelector('.popup__close');
-
+const poupCloseImg = popupImg.querySelector('.popup__close');
 
 // универсальная функция открытия попапа
 function openPopup(popupName) {
@@ -33,26 +34,25 @@ function closePopup(popupName) {
   popupName.classList.remove("popup_opened");
 };
 
-
-function formSubmitHandler(event) {
+function submitFormHandler(event) {
   event.preventDefault();
-  closePopup(editPopup);
-  editPopupChangeName.textContent = nameInput.value;
-  editPopupChangeInfo.textContent = infoInput.value;
+  closePopup(popupEdit);
+  popupEditChangeName.textContent = nameInput.value;
+  popupEditChangeInfo.textContent = infoInput.value;
+  event.target.reset();
 };
 
 editLink.addEventListener("click", () => {
-  openPopup (editPopup);
-  nameInput.value = editPopupChangeName.textContent;
-  infoInput.value = editPopupChangeInfo.textContent;
+  openPopup (popupEdit);
+  nameInput.value = popupEditChangeName.textContent;
+  infoInput.value = popupEditChangeInfo.textContent;
 });
 
-editPopupCloseButton.addEventListener("click", () => {
-  closePopup(editPopup);
+popupEditCloseButton.addEventListener("click", () => {
+  closePopup(popupEdit);
 });
 
-editPopupForm.addEventListener('submit', formSubmitHandler);
-
+popupEditForm.addEventListener('submit', submitFormHandler);
 
 // Ищем template для добавления карточек
 
@@ -67,7 +67,7 @@ const createCardElement = (cardData) => {
   const cardName = cardElement.querySelector(".card__title");
   const cardImage = cardElement.querySelector('.card__img');
 
-  cardName.innerHTML = cardData.name;
+  cardName.textContent = cardData.name;
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
 
@@ -78,7 +78,6 @@ const createCardElement = (cardData) => {
   const handleDelete = () => {
     cardElement.remove();
   };
-
 
   // функция нравится - сердечко
   const handleLike = () => {
@@ -101,7 +100,7 @@ const createCardElement = (cardData) => {
   return cardElement;
 };
 
-closeImg.addEventListener('click', () => {
+poupCloseImg.addEventListener('click', () => {
   closePopup(popupImg);
 });
 
@@ -115,21 +114,18 @@ initialCards.forEach((card) => {
 
 // открытие и закрытие попапа для добавления карточек
 
-addLink.addEventListener('click', () => {
-  openPopup(addPopup);
+popupAddLink.addEventListener('click', () => {
+  openPopup(popupAdd);
 });
 
-addPopupCloseButton.addEventListener('click', () => {
-  closePopup(addPopup);
+popupAddCloseButton.addEventListener('click', () => {
+  closePopup(popupAdd);
 });
 
 // функция добавления карточек
 
 const handleAddLinkSubmit = (event) => {
   event.preventDefault();
-
-  const cardNameInput = addPopup.querySelector('.popup__input_type_card-name');
-  const cardURLInput = addPopup.querySelector('.popup__input_type_card-url');
 
   const name = cardNameInput.value;
   const link = cardURLInput.value;
@@ -140,10 +136,12 @@ const handleAddLinkSubmit = (event) => {
   };
 
   renderCardElement(createCardElement(cardAdd));
-  closePopup(addPopup);
+  event.target.reset();
+  closePopup(popupAdd);
+  
 };
 
 // кнопка добавить карточку
-addPopupForm.addEventListener('submit', handleAddLinkSubmit);
+popupAddForm.addEventListener('submit', handleAddLinkSubmit);
 
 
