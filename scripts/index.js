@@ -27,12 +27,39 @@ const poupCloseImg = popupImg.querySelector('.popup__close');
 // универсальная функция открытия попапа
 function openPopup(popupName) {
   popupName.classList.add("popup_opened");
+  document.addEventListener('keydown', keyCloseByEsc);
+  document.addEventListener('mousedown', closeCardOverlay);
 };
 
 // универсальная функция закртия попапа
 function closePopup(popupName) {
   popupName.classList.remove("popup_opened");
+  document.removeEventListener('keydown', keyCloseByEsc);
+  document.removeEventListener('mousedown', closeCardOverlay);
+
 };
+
+function keyCloseByEsc (evt) { // функция закрытия попапов на escape
+  if (evt.key === 'Escape') { 
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+}
+
+// функция закрытия картинки по фону
+function closeCardOverlay(evt) {
+  const popupOpened = document.querySelector('.popup_opened');
+  if (evt.target === popupOpened) {
+      closePopup(popupOpened);
+  }
+};
+
+function keySubmitFormByEnter (evt) {// функция для отправки формы на  enter 
+  if (evt.key === 'Enter') { 
+    submitEditProfileForm();
+    submitAddCardForm();
+}
+}
 
 function submitEditProfileForm(event) {
   event.preventDefault();
@@ -142,4 +169,5 @@ const submitAddCardForm = (event) => {
 // кнопка добавить карточку
 formAddCard.addEventListener('submit', submitAddCardForm);
 
+// закрытие форм на esc
 

@@ -41,4 +41,9 @@
 
 @import url(../blocks/popup/_opened_card/popup_opened_card.css);
 
+@import url(../blocks/popup/__input/_invalid/popup__input_invalid.css);
+@import url(../blocks/error-message/error-message.css);
+@import url(../blocks/error-message/_hidden/error-message_hidden.css);
+
+@import url(../blocks/popup/__save/_disabled/popup__save_disabled.css);
 
