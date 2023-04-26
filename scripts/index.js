@@ -24,19 +24,26 @@ const cardImgName = popupImg.querySelector('.popup__title-img');
 const linkImg = popupImg.querySelector('.popup__card-img');
 const poupCloseImg = popupImg.querySelector('.popup__close');
 
+// для оверлея 
+const popups = Array.from(document.querySelectorAll(".popup"));
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    }
+  });
+});
+
 // универсальная функция открытия попапа
 function openPopup(popupName) {
   popupName.classList.add("popup_opened");
   document.addEventListener('keydown', keyCloseByEsc);
-  document.addEventListener('mousedown', closeCardOverlay);
 };
 
 // универсальная функция закртия попапа
 function closePopup(popupName) {
   popupName.classList.remove("popup_opened");
   document.removeEventListener('keydown', keyCloseByEsc);
-  document.removeEventListener('mousedown', closeCardOverlay);
-
 };
 
 function keyCloseByEsc (evt) { // функция закрытия попапов на escape
@@ -53,13 +60,6 @@ function closeCardOverlay(evt) {
       closePopup(popupOpened);
   }
 };
-
-function keySubmitFormByEnter (evt) {// функция для отправки формы на  enter 
-  if (evt.key === 'Enter') { 
-    submitEditProfileForm();
-    submitAddCardForm();
-}
-}
 
 function submitEditProfileForm(event) {
   event.preventDefault();
@@ -163,11 +163,11 @@ const submitAddCardForm = (event) => {
 
   renderCardElement(createCardElement(cardAdd));
   event.target.reset();
+  event.submitter.classList.add('popup__save_disabled')
+  event.submitter.disabled = true;
   closePopup(popupAddCard);
 };
 
 // кнопка добавить карточку
 formAddCard.addEventListener('submit', submitAddCardForm);
-
-// закрытие форм на esc
 

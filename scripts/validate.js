@@ -47,10 +47,6 @@ function toggleButtonValidity(config, form) {
 function enableValidation(config) {
   const forms = Array.from(document.querySelectorAll(config.formSelector));
   forms.forEach((form) => {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-      });
-  
       const inputsEdit = form.querySelectorAll(config.inputSelector);
       const inputsEditArray = Array.from(inputsEdit);
       inputsEditArray.forEach(function (input) {
