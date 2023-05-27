@@ -6,7 +6,6 @@ export default class FormValidator {
     this.button = this.form.querySelector(config.submitButtonSelector);  //кнопка отправки форм
   }
 
-
   _setInputValidState(input) {
    // валидный
     const errorElement = this.form.querySelector(`#error-${input.id}`);
@@ -31,14 +30,14 @@ export default class FormValidator {
 
 // неактивная кнопка сохранения 
 _disableButton() {
-this.button.classList.add(this.config.inactiveButtonClass); 
-this.button.setAttribute('disabled', '');
+  this.button.classList.add(this.config.inactiveButtonClass); 
+  this.button.setAttribute('disabled', '');
 }
 
 // активная кнопка сохранения 
 _enableButton() {
-this.button.classList.remove(this.config.inactiveButtonClass);
-this.button.removeAttribute('disabled');
+  this.button.classList.remove(this.config.inactiveButtonClass);
+  this.button.removeAttribute('disabled');
 }
 
 _toggleButtonValidity() {
@@ -52,7 +51,7 @@ _toggleButtonValidity() {
 
 hideError(form) {
   this.inputsEdit.forEach((inputElement) => {
-    this._setInputInvalidState(inputElement);
+    this._setInputValidState(inputElement);
   });
   this._disableButton();
 }
@@ -66,7 +65,6 @@ _checkEventListeners = () => {
     });
   });
   this.form.addEventListener('submit', (event) => {
-    event.target.reset();
     event.submitter.classList.add('popup__save_disabled');
     event.submitter.disabled = true;
   })

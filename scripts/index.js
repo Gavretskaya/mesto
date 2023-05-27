@@ -32,7 +32,7 @@ const linkImg = popupImg.querySelector('.popup__card-img');
 const popups = Array.from(document.querySelectorAll(".popup"));
 popups.forEach((popup) => {
   popup.addEventListener("mousedown", (evt) => {
-    if (evt.target.classList.contains('popup_opened')) {
+    if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains("popup__close")) {
       closePopup(popup);
     }
   });
@@ -56,14 +56,6 @@ function keyCloseByEsc (evt) { // функция закрытия попапов
     closePopup(openedPopup);
   }
 }
-
-// функция закрытия картинки по фону
-function closeCardOverlay(evt) {
-  const popupOpened = document.querySelector('.popup_opened');
-  if (evt.target === popupOpened) {
-      closePopup(popupOpened);
-  }
-};
 
 function submitEditProfileForm(event) { //функция обработки отправки попапа редактирования профиля, поля уже заполнены информацией
   event.preventDefault(); 
@@ -117,7 +109,7 @@ function openImgCardPopup(name, link) { // функция открытия по�
 
 buttonOpenFormAddCard.addEventListener('click', () => {
   openPopup(popupAddCard);
-  cardValidator.hideError;
+  cardValidator.hideError();
 });
 
 popupAddCloseButton.addEventListener('click', () => {
@@ -139,8 +131,6 @@ const submitAddCardForm = (event) => {
 
   renderCardElement(createCardElement(cardAdd));
   event.target.reset();
-  event.submitter.classList.add('popup__save_disabled')
-  event.submitter.disabled = true;
   closePopup(popupAddCard);
 };
 
