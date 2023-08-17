@@ -9,7 +9,7 @@ export default class Card {
       this._cardImg = this._element.querySelector('.card__img');
       this._cardDeleteButton = this._element.querySelector('.card__delete-button');
       this._cardLikeButton = this._element.querySelector('.card__favorites');
-      this.openImgCardPopup = openImgCardPopup;
+      this._openImgCardPopup = openImgCardPopup;
 
     }
 
@@ -36,11 +36,13 @@ export default class Card {
     this._cardLikeButton.classList.toggle('card__favorites_active');
   }
 
+  // _handleOpenImagePopupImage = ()
+
   _setEventListeners = () => {
     this._cardDeleteButton.addEventListener('click', this._handleDeleteCard); // слушатель удаления карточки
     this._cardLikeButton.addEventListener('click', this._handleLike); // слушатель лайка карточки
     this._cardImg.addEventListener('click', () => {
-      this.openImgCardPopup(this._name, this._link)
+      this._openImgCardPopup(this._name, this._link)
     }); // слушатель открытия картинки
   }
 }

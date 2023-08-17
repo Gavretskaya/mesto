@@ -1,0 +1,11 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "Проект разработан в учебных целях, с целью освоения таких приемов в веб-разработке, как:\r * Адаптивная верстка\r * Интерактивные ссылки\r * Flex-контейнеры\r * Grid-сетки\r * Структура файлов по БЭМ\r * Popup\r * JS\r * Валидация форм (Дружелюбный дизайн)\r * Отправка форм по нажатию клавиш",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anastasia Gavretskaya",
+  "license": "ISC"
+}
