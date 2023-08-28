@@ -9,8 +9,8 @@ export default class PopupWithImage extends Popup {
 
   open = (data) => { //делаем метод стрелочным чтобы он выполнялся в контексте именно попапа, а не в классе Card например
     this._popupImage.src = data.link; //присвоили обьект который он получает + свойство link
-    this._popupImage.alt = data.name;
-    this._imagePopupCaption.textContent = data.name;
+    this._popupImage.alt = data.cardname;
+    this._imagePopupCaption.textContent = data.cardname;
     super.open()
   }
 }

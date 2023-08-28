@@ -1,7 +1,7 @@
 // не забудь сделать экспорт!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 export default class Card {
-    constructor(data, templateSelector, openImgCardPopup) {
-      this._name = data.name;
+    constructor(data, templateSelector, handleCardClick) {
+      this._name = data.cardname;
       this._link = data.link;
       this._templateSelector = templateSelector;
       this._element = this._getCardElement();
@@ -9,8 +9,8 @@ export default class Card {
       this._cardImg = this._element.querySelector('.card__img');
       this._cardDeleteButton = this._element.querySelector('.card__delete-button');
       this._cardLikeButton = this._element.querySelector('.card__favorites');
-      this._openImgCardPopup = openImgCardPopup;
-
+      this._handleCardClick = handleCardClick;
+      
     }
 
     // добавление карточек на стр, находит template выбирает нужный класс, клонирует и возвращает свой
@@ -36,13 +36,13 @@ export default class Card {
     this._cardLikeButton.classList.toggle('card__favorites_active');
   }
 
-  // _handleOpenImagePopupImage = ()
+  _handleImgCardPopup = () => {
+    this._handleCardClick({cardname: this._name, link: this._link}); 
+ }
 
   _setEventListeners = () => {
     this._cardDeleteButton.addEventListener('click', this._handleDeleteCard); // слушатель удаления карточки
     this._cardLikeButton.addEventListener('click', this._handleLike); // слушатель лайка карточки
-    this._cardImg.addEventListener('click', () => {
-      this._openImgCardPopup(this._name, this._link)
-    }); // слушатель открытия картинки
+    this._cardImg.addEventListener('click', this._handleImgCardPopup); // слушатель открытия картинки
   }
 }

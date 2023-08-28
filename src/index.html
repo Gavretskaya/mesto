@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
+  <!-- <link rel="stylesheet" href="./pages/index.css"> -->
   <title>Mesto</title>
 </head>
 <body class="page">
@@ -54,10 +54,10 @@
     <button type="button" class="popup__close popup__close_card"></button>
     <h3 class="popup__title">Новое место</h3>
     <form class="popup__form popup__form_add" name="addCardform" novalidate>
-      <input id="cardname" type="text" class="popup__input popup__input_type_card-name" name="name" required placeholder="Название" maxlength="30" minlength="2">
+      <input id="cardname" type="text" class="popup__input popup__input_type_card-name" name="cardname" required placeholder="Название" maxlength="30" minlength="2">
       <span id="error-cardname" class="error-message"></span>
-      <input id="url" type="url" class="popup__input popup__input_type_card-url" name="link" required  placeholder="Ссылка на картинку">
-      <span id="error-url" class="error-message"></span>
+      <input id="link" type="url" class="popup__input popup__input_type_card-url" name="link" required  placeholder="Ссылка на картинку">
+      <span id="error-link" class="error-message"></span>
       <button type="submit" disabled class="popup__save popup__save_disabled">Создать</button> 
     </form>
   </div>
@@ -81,7 +81,6 @@
     <button type="button" class="card__delete-button"></button>
   </article>
 </template>
-
-<script type="module" src="./scripts/index.js"></script>
+<!-- <script type="module" src="./scripts/index.js"></script> -->
 </body>
 </html>
