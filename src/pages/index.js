@@ -39,11 +39,11 @@ const section = new Section({items: initialCards, renderer: (data) => { //cоз�
   }
 }, elementsSelector)
 
-section.addCardFromMASSIV() //вывызываем класс section
+section.renderItems() //вывызываем класс section
 
 const popupProfile = new PopupWithForm(popupProfileSelector, (evt) => {
   evt.preventDefault();
-  userInfo.setUserInfo(popupProfile.getInputValues()); 
+  userInfo.setUserInfo(popupProfile); 
   popupProfile.close();
 });
 
@@ -51,7 +51,7 @@ popupProfile.setEventListeners();
 
 const popupAddCards = new PopupWithForm(popupAddCardsSelector, (evt) => { // экземпляр для попапа добавления картинки - плюсик
   evt.preventDefault();
-  section.addItem(section.renderer(popupAddCards.getInputValues())); //вызываем секшн экземпляр(выше)
+  section.addItem(section.renderer(popupAddCards)); //вызываем секшн экземпляр(выше)
   popupAddCards.close();
 }); 
 

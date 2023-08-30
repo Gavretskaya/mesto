@@ -6,7 +6,7 @@ export default class Section {
     this.renderer = renderer
   }
 
-  addCardFromMASSIV() {
+  renderItems() {
     this._initialCard.forEach(element => {
       this.addItem(this.renderer(element))
     });
