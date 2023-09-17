@@ -33,27 +33,31 @@ const userInfo = new UserInfo(infoConfig);
 const popupImage = new PopupWithImage(PopupImageSelector); // создали экземпляр 
 popupImage.setEventListeners(); //теперь будет работать закрытие по оверлею и esc
 
-const section = new Section({items: initialCards, renderer: (data) => { //cоздаем карточки
-  const card = new Card(data, '#card-template', popupImage.open); // экземпляр карточки openImgCardPopup
-  return card.generateCard();
-  }
+function createNewCard(item) {
+ const card = new Card(item, '#card-template', popupImage.open)
+ return card.generateCard();
+}
+
+const section = new Section({ //добавляем карточки в галерею
+  items: initialCards, 
+  renderer: createNewCard
 }, elementsSelector)
 
 section.renderItems() //вывызываем класс section
 
-const popupProfile = new PopupWithForm(popupProfileSelector, (evt) => {
-  evt.preventDefault();
-  userInfo.setUserInfo(popupProfile); 
+const editProfileSubmit = (dataForm) => { //обработчик редактирования профиля
+  userInfo.setUserInfo(dataForm);
   popupProfile.close();
-});
+}
+
+const popupProfile = new PopupWithForm (popupProfileSelector, editProfileSubmit);
 
 popupProfile.setEventListeners();
 
-const popupAddCards = new PopupWithForm(popupAddCardsSelector, (evt) => { // экземпляр для попапа добавления картинки - плюсик
-  evt.preventDefault();
-  section.addItem(section.renderer(popupAddCards)); //вызываем секшн экземпляр(выше)
+const popupAddCards = new PopupWithForm (popupAddCardsSelector, (item) => {
+  section.addItem(createNewCard(item));
   popupAddCards.close();
-}); 
+});
 
 popupAddCards.setEventListeners();
 
