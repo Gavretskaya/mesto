@@ -1,8 +1,11 @@
 // не забудь сделать экспорт!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 export default class Card {
     constructor(data, templateSelector, handleCardClick) {
-      this._name = data.cardname;
+      // console.log(data)
+      this._name = data.name;
       this._link = data.link;
+      this._myId = data.myid;
+      this._ownerId = data.owner._id;
       this._templateSelector = templateSelector;
       this._element = this._getCardElement();
       this._cardTitle = this._element.querySelector('.card__title');
@@ -10,7 +13,11 @@ export default class Card {
       this._cardDeleteButton = this._element.querySelector('.card__delete-button');
       this._cardLikeButton = this._element.querySelector('.card__favorites');
       this._handleCardClick = handleCardClick;
-      
+    }
+
+    // приватный метод для корзины удаления карточки
+    _changeVisibleTrashButton() {
+      this._myId == this._ownerId ? this._cardDeleteButton.style.display = 'block' : this._cardDeleteButton.remove();
     }
 
     // добавление карточек на стр, находит template выбирает нужный класс, клонирует и возвращает свой
@@ -25,6 +32,7 @@ export default class Card {
       this._cardTitle.textContent = this._name;
       this._cardImg.src = this._link;
       this._cardImg.alt = this._name;
+      this._changeVisibleTrashButton();
       return this._element;
     }
 

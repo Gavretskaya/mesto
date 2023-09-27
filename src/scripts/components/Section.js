@@ -1,18 +1,17 @@
 export default class Section {
-  constructor ({items, renderer }, containerSelector) {
+  constructor (renderer, containerSelector) {
     this._container = document.querySelector(containerSelector);
-    this._initialCard = items;
-    // ??? свойство публичное делать или нет?
-    this.renderer = renderer
+    this._renderer = renderer;
   }
 
-  renderItems() {
-    this._initialCard.forEach(element => {
-      this.addItem(this.renderer(element))
+  renderItems(dataCard) {
+    dataCard.forEach((element) => {
+      this._renderer(element);
     });
   }
 
-  addItem(elementDom) {
-    this._container.prepend(elementDom);
+  addItem(element) {
+    this._container.prepend(element);
   }
+
 }
