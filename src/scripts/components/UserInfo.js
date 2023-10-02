@@ -6,7 +6,7 @@ export default class UserInfo { //можно через константу
   }
 
   getUserInfo() { //возвращает объект в форму - 2 инпута имя и инфо
-    return {username: this._profileName.textContent, info: this._profileInfo.textContent}
+    return {username: this._profileName.textContent, info: this._profileInfo.textContent, avatar: this._profileAvatar.textContent}
   }
 
   setUserInfo({username, avatar, info}) {
