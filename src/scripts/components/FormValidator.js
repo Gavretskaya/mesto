@@ -49,7 +49,7 @@ _toggleButtonValidity() {
  }
 }
 
-hideError(form) {
+resetValidation(form) {
   this.inputsEdit.forEach((inputElement) => {
     this._setInputValidState(inputElement);
   });
@@ -64,10 +64,6 @@ _checkEventListeners = () => {
       this._toggleButtonValidity();
     });
   });
-  this.form.addEventListener('submit', (event) => {
-    event.submitter.classList.add('popup__save_disabled');
-    event.submitter.disabled = true;
-  })
 };
 
   enableValidation = () => {

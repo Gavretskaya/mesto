@@ -13,7 +13,7 @@ export default class PopupWithDeleteForm extends Popup {
     super.setEventListeners()
     this._formDelete.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this._submitButton.textContent = `Сохранение...`
+      this._submitButton.textContent = `Удаление...`
       this._submitFunction({card: this._element, cardId: this._cardId});
     })
   }

@@ -1,10 +1,10 @@
 // не забудь сделать экспорт!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 export default class Card {
-    constructor(data, templateSelector, handleCardClick, openDelete, changeLike) { //в этих же скобках будет попап удаления карточки (openDelete) popupDelete - в index.js
+    constructor(data, templateSelector, handleCardClick, openDelete, changeLike, userId) { //в этих же скобках будет попап удаления карточки (openDelete) popupDelete - в index.js
       // console.log(data)
       this._name = data.name; 
       this._link = data.link;
-      this._myId = data.myid;
+      this._myId = userId;
       this._likes = data.likes;
       this._likesLength = data.likes.length;
       this._ownerId = data.owner._id;
@@ -26,8 +26,15 @@ export default class Card {
       this._myId == this._ownerId ? this._cardDeleteButton.style.display = 'block' : this._cardDeleteButton.remove();
     }
 
-    _handleLike = () => { //функция лайка карточки
-      this._changeLike(this._cardLikeButton, this._cardId);
+    
+    //функция лайка карточки
+    _handleLike = () => { 
+      this._changeLike(this.isLiked(), this._cardId);
+    }
+
+
+    isLiked = () => {
+      return this._cardLikeButton.classList.contains('card__favorites_active');
     }
 
     // добавление карточек на стр, находит template выбирает нужный класс, клонирует и возвращает свой
